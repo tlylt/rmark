@@ -1,6 +1,6 @@
 import { RMark } from '.';
 
-export const sampleText = `# Header 1
+const sampleText = `# Header 1
 ## Header 2
 ### Header 3
 #### Header 4

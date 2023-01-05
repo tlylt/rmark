@@ -9,6 +9,7 @@
     "dev": "tsc -w",
     "start": "node dist/index.js",
     "prepare": "npm run build",
+    "prepublishOnly": "npm run test",
     "test": "jest",
     "serve": "parcel index.html"
   },
@@ -16,7 +17,11 @@
     "type": "git",
     "url": "git+https://github.com/tlylt/rmark.git"
   },
-  "keywords": [],
+  "keywords": [
+    "markdown",
+    "parser",
+    "regex"
+  ],
   "author": "tlylt <liu_yongliang@hotmail.com> (https://github.com/tlylt)",
   "license": "MIT",
   "bugs": {
