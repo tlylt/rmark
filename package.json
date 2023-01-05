@@ -1,5 +1,5 @@
 {
-  "name": "rmark",
+  "name": "@tlylt/rmark",
   "version": "1.0.0",
   "description": "A simple regex-based toy Markdown parser written in TypeScript",
   "main": "dist/index.js",
@@ -8,6 +8,7 @@
     "build": "tsc",
     "dev": "tsc -w",
     "start": "node dist/index.js",
+    "prepare": "npm run build",
     "test": "jest",
     "serve": "parcel index.html"
   },
@@ -28,9 +29,5 @@
     "parcel": "^2.8.2",
     "ts-jest": "^29.0.3",
     "typescript": "^4.9.4"
-  },
-  "dependencies": {
-    "@faker-js/faker": "^7.6.0",
-    "@types/google.maps": "^3.51.0"
   }
 }

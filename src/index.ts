@@ -28,7 +28,9 @@ const defaultRules: Rule[] = [
     ),
   ]),
   new Rule('paragraph', [
+    // this regex can't skip processed HTML
     new Pattern(/([^\n]+\n?)/g, '\n<p>$1</p>\n'),
+    // another possible regex that can't skip processed HTML
     // new Pattern(/(?:^|\n)([^\n\<]+(?:\n[^\n\>]+)*)(?:\n|$)/gm, '\n<p>$1</p>\n'),
   ]),
 ];
@@ -36,8 +38,16 @@ const defaultRules: Rule[] = [
 export class RMark {
   private rules: Rule[] = defaultRules;
 
+  public addRuleBefore(rule: Rule, before: string): RMark {
+    const index = this.rules.findIndex((r) => r.name === before);
+    if (index !== -1) {
+      this.rules.splice(index, 0, rule);
+    }
+    return this;
+  }
+
   public addRule(rule: Rule): RMark {
-    this.rules.push(rule);
+    this.addRuleBefore(rule, 'paragraph');
     return this;
   }
 
@@ -52,3 +62,6 @@ export class RMark {
     return result;
   }
 }
+
+export { Rule } from './Rule';
+export { Pattern } from './Pattern';
