@@ -54,10 +54,7 @@ export class RMark {
   public render(raw: string) {
     let result = raw;
     this.rules.forEach((rule) => {
-      const patterns = rule.patterns;
-      patterns.forEach((pattern) => {
-        result = result.replace(pattern.regex, pattern.replacement);
-      });
+      result = rule.apply(result);
     });
     return result;
   }
